@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Google Map</title>
+
+<style>
+body, p { margin: 0; line-height: 160%; }
+html, body, #map_canvas { width: 100%; height: 100%; }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+</head>
+<body onload="initialize();">
+<div id="map_canvas" class="googleMaps"></div>
+<script>
+function initialize() {
+	//スタイルの設定(コピるやつ)/////////////////////////////////
+	var stylez = [
+          {
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#212121"
+              }
+            ]
+          },
+          {
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.icon",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#757575"
+              }
+            ]
+          },
+          {
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#212121"
+              }
+            ]
+          },
+          {
+            "featureType": "landscape",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#212121"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#757575"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "color": "#181818"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#616161"
+              }
+            ]
+          },
+          {
+            "featureType": "poi.park",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+              {
+                "color": "#1b1b1b"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "stylers": [
+              {
+                "color": "#ffffff"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road.highway",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "labels.text.fill",
+            "stylers": [
+              {
+                "color": "#757575"
+              }
+            ]
+          },
+          {
+            "featureType": "transit.line",
+            "stylers": [
+              {
+                "color": "#ffffff"
+              }
+            ]
+          },
+          {
+            "featureType": "water",
+            "stylers": [
+              {
+                "color": "#0080ff"
+              }
+            ]
+          }
+        ];
+	//コピるやつここまで/////////////////////////////////////////
+	
+	var latlng = new google.maps.LatLng(35.690291,139.78335);
+	var myOptions = {
+		zoom: 14,
+		scaleControl: true,
+		mapTypeControl: true,
+		center: latlng,
+		mapTypeControlOptions: { mapTypeIds: ['testmap', google.maps.MapTypeId.ROADMAP] },
+		scrollwheel: true
+	};
+	var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+	
+	var styledMapOptions = { name: 'test' }
+	var lopanType = new google.maps.StyledMapType(stylez, styledMapOptions);
+	map.mapTypes.set('testmap', lopanType);
+	map.setMapTypeId('testmap');
+}
+</script>
+</body>
+</html>
