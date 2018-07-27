@@ -7,3 +7,5 @@ Google Maps から白黒の地図(testmap.htm)をキャプチャし, それを�
 DXライブラリを使用させてもらっています
 
 DXライブラリについては <http://dxlib.o.oo7.jp> を参照してください
+
+srcの中の mapmaze3.cpp が本体です
